@@ -1,4 +1,4 @@
-# HackTheBox-DynStr-Writeup
+# HackTheBox-DynStr Writeup
 
 ![Screen Shot 2021-10-14 at 04 10 21](https://user-images.githubusercontent.com/8503135/137306574-3382fecb-aea2-4bca-bd6b-267837c710be.png)
 
@@ -8,6 +8,7 @@
    + ### [Privilege Escalation User](#privilege-escalation-user-1)
    + ### [Privilege Escalation Root](#privilege-escalation-root-1)
    + ### [References](#references-1)
+
 # Synopsis
 
 “DynStr” is marked as medium difficulty machine that features dynamic DNS update API service via HTTP. The homepage reveals domains, credentials and hostname, directory brute force gives us a path where the API is being used. Using gathered credentials we push the update to get remote code execution on machine. User SSH key’s were stored in ‘strace’ output file, but there’s restriction to login via SSH. It only allows specific domain to login, we modify the name server and update it with new domain and link it to our IP address, and then login via SSH to user. Sudo capability is enabled to current user to run a specific  script, we take advantage of that to gain root .
